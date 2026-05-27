@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Student{
     String name;
@@ -11,11 +12,30 @@ class Student{
 }
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Student> students = new ArrayList<>();
+        System.out.println("Enter number of students: ");
+        int n = sc.nextInt();
 
+        System.out.println("\n========== STUDENT REPORT ==========");
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Enter student name: ");
+            String name = sc.next(); //.next() reads one word input
+
+            System.out.println("Enter student marks: ");
+            int marks = sc.nextInt();
+
+            Student s = new Student(name, marks);
+            students.add(s);
+
+        }
         // System.out.println("Hello!");
+        /*
         Student s1 = new Student("Rahul", 85);
         Student s2 = new Student("Aman", 92);
         Student s3 = new Student("Shivansh", 100);
+        */
         /*
         System.out.println(s1.name);
         System.out.println(s1.marks);
@@ -23,10 +43,10 @@ public class Main {
         System.out.println(s2.marks);
         */
 
-        ArrayList<Student> students = new ArrayList<>();
-        students.add(s1);
+        //ArrayList<Student> students = new ArrayList<>();
+        /*students.add(s1);
         students.add(s2);
-        students.add(s3);
+        students.add(s3);*/
 
         int sum = 0;
         int highest = students.get(0).marks;

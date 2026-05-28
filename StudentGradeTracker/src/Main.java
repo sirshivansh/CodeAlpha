@@ -1,8 +1,7 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Student{
+class Student {
     String name;
     int marks;
 
@@ -14,7 +13,7 @@ class Student{
 
 public class Main {
     public static void displayStudents(ArrayList<Student> students) {
-        for (Student s: students) {
+        for (Student s : students) {
             System.out.printf("%-20s %d%n", s.name, s.marks);
         }
     }
@@ -24,7 +23,7 @@ public class Main {
         int highest = students.get(0).marks;
         int lowest = students.get(0).marks;
 
-        for (Student s: students) {
+        for (Student s : students) {
             sum = sum + s.marks;
 
             if (s.marks > highest) {
@@ -37,23 +36,24 @@ public class Main {
         }
         System.out.println("-----------------------------------");
 
-        System.out.println("Total Marks    : "+ sum);
+        System.out.println("Total Marks    : " + sum);
 
         //creating average value
-        double average = (double)sum/students.size();
-        System.out.printf("Average Marks  : %.2f%n",average);
+        double average = (double) sum / students.size();
+        System.out.printf("Average Marks  : %.2f%n", average);
 
         //output of highest value
-        System.out.println("Highest Marks  : "+ highest);
+        System.out.println("Highest Marks  : " + highest);
 
         //output of lowest value
         System.out.println("Lowest Marks   : " + lowest);
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>();
 
-        while(true){
+        while (true) {
             System.out.println("\n===== MENU =====");
             System.out.println("1. Add Student");
             System.out.println("2. View Student");
@@ -63,13 +63,13 @@ public class Main {
             System.out.println("Enter your choice: ");
             int choice = sc.nextInt(); // there is \n waiting in buffer.
             sc.nextLine(); //It clears the leftover name form the buffer.
-            switch(choice){
+            switch (choice) {
                 case 1:
                     System.out.println("Enter student name: ");
                     String name = sc.nextLine();
                     System.out.println("Enter student marks: ");
                     int marks = sc.nextInt();
-                    if(marks < 0 || marks > 100){
+                    if (marks < 0 || marks > 100) {
                         System.out.println("Invalid marks! Marks should be between 0 and 100");
                     }
 
@@ -92,7 +92,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("\n========== REPORT ==========");
-                    if(students.isEmpty()) {
+                    if (students.isEmpty()) {
                         System.out.println("No students available!");
                     }
                     generateReport(students);
@@ -120,8 +120,8 @@ public class Main {
             students.add(s);
 */
 
-        }
-        // System.out.println("Hello!");
+    }
+    // System.out.println("Hello!");
         /*
         Student s1 = new Student("Rahul", 85);
         Student s2 = new Student("Aman", 92);
@@ -134,7 +134,7 @@ public class Main {
         System.out.println(s2.marks);
         */
 
-        //ArrayList<Student> students = new ArrayList<>();
+    //ArrayList<Student> students = new ArrayList<>();
         /*students.add(s1);
         students.add(s2);
         students.add(s3);*/
@@ -145,11 +145,11 @@ public class Main {
         System.out.println("-----------------------------------");
 */
 
-        //creating total value
-        // for ( datatype variable: dataset name)
+    //creating total value
+    // for ( datatype variable: dataset name)
 //        displayStudents(students);
 //        generateReport(students);
 
 
-        // System.out.println(students.size());
+    // System.out.println(students.size());
 }

@@ -10,7 +10,44 @@ class Student{
         this.marks = marks;
     }
 }
+
 public class Main {
+    public static void displayStudents(ArrayList<Student> students) {
+        for (Student s: students) {
+            System.out.printf("%-20s %d%n", s.name, s.marks);
+        }
+    }
+
+    public static void generateReport(ArrayList<Student> students) {
+        int sum = 0;
+        int highest = students.get(0).marks;
+        int lowest = students.get(0).marks;
+
+        for (Student s: students) {
+            sum = sum + s.marks;
+
+            if (s.marks > highest) {
+                highest = s.marks;
+            }
+
+            if (s.marks < lowest) {
+                lowest = s.marks;
+            }
+        }
+        System.out.println("-----------------------------------");
+
+        System.out.println("Total Marks    : "+ sum);
+
+        //creating average value
+        double average = (double)sum/students.size();
+        System.out.printf("Average Marks  : %.2f%n",average);
+
+        //output of highest value
+        System.out.println("Highest Marks  : "+ highest);
+
+        //output of lowest value
+        System.out.println("Lowest Marks   : " + lowest);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>();
@@ -50,37 +87,11 @@ public class Main {
         System.out.printf("%-20s %s%n", "Student Name", "Marks"); // %s = string, %-20s = left aligned, print string using 20 spaces
         System.out.println("-----------------------------------");
 
-        int sum = 0;
-        int highest = students.get(0).marks;
-        int lowest = students.get(0).marks;
-
         //creating total value
         // for ( datatype variable: dataset name)
-        for (Student s: students) {
-            System.out.printf("%-20s %d%n", s.name, s.marks);
-            sum = sum + s.marks;
+        displayStudents(students);
+        generateReport(students);
 
-            if (s.marks > highest) {
-                highest = s.marks;
-            }
-
-            if (s.marks < lowest) {
-                lowest = s.marks;
-            }
-        }
-        System.out.println("-----------------------------------");
-
-        System.out.println("Total Marks    : "+ sum);
-
-        //creating average value
-        double average = (double)sum/students.size();
-        System.out.printf("Average Marks  : %.2f%n",average);
-
-        //output of highest value
-        System.out.println("Highest Marks  : "+ highest);
-
-        //output of lowest value
-        System.out.println("Lowest Marks   : " + lowest);
 
         // System.out.println(students.size());
     }

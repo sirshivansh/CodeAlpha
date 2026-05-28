@@ -62,10 +62,28 @@ public class Main {
 
             System.out.println("Enter your choice: ");
             int choice = sc.nextInt();
+
+            switch(choice){
+                case 1:
+                    System.out.println("Add Student Selected");
+                    break;
+                case 2:
+                    System.out.println("View Students Selected");
+                    break;
+                case 3:
+                    System.out.println("Generate Report Selected");
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid Choice!");
+            }
         }
 
         System.out.println("Enter number of students: ");
         int n = sc.nextInt();
+/*
 
         for (int i = 1; i <= n; i++) {
             System.out.println("Enter student name: ");
@@ -76,6 +94,7 @@ public class Main {
 
             Student s = new Student(name, marks);
             students.add(s);
+*/
 
         }
         // System.out.println("Hello!");

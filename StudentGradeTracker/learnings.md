@@ -179,6 +179,83 @@ Practiced structural post-processing optimization to build clean, professional c
 
 ---
 
+### 16. File Handling & Persistent Storage
+
+Integrated persistent data storage mechanisms using Java file handling APIs to ensure application state survives beyond runtime execution.
+
+* **File Writing:** Utilized `FileWriter` streams to serialize student data into a persistent external text file (`students.txt`).
+* **Structured Record Storage:** Stored records in a lightweight comma-separated format:
+
+```java
+writer.write(s.name + "," + s.marks + "\n");
+
+````
+
+* **Persistence Layer Understanding:** Distinguished between temporary in-memory runtime storage (`ArrayList`) and long-term external persistence systems (filesystem-backed storage).
+
+---
+
+### 17. Exception Handling & Runtime Safety
+
+Implemented Java exception handling systems to prevent abrupt application crashes during file operations.
+
+* **Checked Exceptions:** Learned that Java forces explicit handling of potentially unsafe I/O operations through checked exceptions.
+* **Try-Catch Architecture:** Wrapped file operations inside guarded execution blocks:
+
+```java
+try {
+    // File operations
+} catch (IOException e) {
+    System.out.println("Error saving the file!");
+}
+
+```
+
+* **Runtime Reliability:** Improved application robustness by gracefully intercepting runtime failures instead of terminating execution unexpectedly.
+
+---
+
+### 18. Debugging and Error Diagnosis
+
+Developed practical debugging skills by tracing and resolving real runtime and logical issues during project evolution.
+
+* **Resolved Common Java Errors:**
+
+    * `cannot find symbol`
+    * Scanner buffer skipping
+    * Misplaced braces and scope violations
+    * File stream closure issues
+    * Incorrect method placement
+
+* **Debugging Workflow Learned:**
+
+    * Observing console behavior
+    * Tracing execution flow
+    * Isolating failure points
+    * Validating assumptions through runtime testing
+
+* **File Stream Lifecycle Management:** Identified improper `writer.close()` placement inside loops and corrected stream lifecycle sequencing.
+
+---
+
+### 19. Application Lifecycle & Persistence Thinking
+
+Transitioned from building one-time execution scripts to designing stateful software systems.
+
+* **Application Evolution:**
+
+    * Initial Phase → Temporary execution-only program
+    * Final Phase → Interactive menu-driven application with persistent storage capabilities
+
+* **Software Engineering Mindset:** Began understanding how real-world software:
+
+    * maintains state
+    * stores historical records
+    * continuously interacts with users
+    * survives across sessions
+
+---
+
 ## Final Project Architecture & Capabilities
 
 The finalized codebase showcases an interactive, fully validated, and modularly designed system supporting the following features:
@@ -199,4 +276,15 @@ The finalized codebase showcases an interactive, fully validated, and modularly 
 | **Software Architecture** | Code modularization, Separation of Concerns (SoC), OOP Design Patterns |
 | **System Reliability** | Defensive programming, input sanitization, edge-case mitigation |
 | **Code Hygiene** | Eliminating redundant operations, code refactoring, structural formatting |
+
+
+## Expanded Technical Competencies
+
+| Additional Competency           | Developed Understanding                                 |
+| ------------------------------- | ------------------------------------------------------- |
+| **Persistence Systems**         | Filesystem-backed data retention and recovery           |
+| **Exception Handling**          | Runtime safety and controlled failure management        |
+| **Debugging Methodology**       | Error tracing, runtime analysis, logical correction     |
+| **File Stream Management**      | Stream lifecycle handling and buffered write operations |
+| **Stateful Application Design** | Long-running interactive software architecture          |
 

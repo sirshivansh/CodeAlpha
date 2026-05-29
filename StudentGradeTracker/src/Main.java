@@ -158,7 +158,6 @@ public class Main {
                     Student deletedStudent =  students.get(index);
                     students.remove(index);
                     saveStudentsToFile(students);
-
                     System.out.println(deletedStudent.name + " deleted successfully!");
                     break;
                 case 5:

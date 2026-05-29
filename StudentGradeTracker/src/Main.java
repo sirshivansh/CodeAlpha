@@ -55,15 +55,37 @@ public class Main {
             FileWriter writer = new FileWriter("students.txt");
             for (Student s : students){
                 writer.write(s.name + "," + s.marks + "\n");
-            } writer.close(); //.close() should come after loop ends.
+            } writer.close();
+            System.out.println("Data Saved Successfully!");//.close() should come after loop ends.
         } catch (IOException e){
             System.out.println("Error saving the file!");
+        }
+    }
+
+    public static void loadStudentsFromFile(ArrayList<Student> students){
+        try{
+            BufferedReader reader =
+                    new BufferedReader(new FileReader("students.txt")); // File Reader = access files, // Buffered Reader = reads lines easily
+            String lines;
+            while ((lines = reader.readLine()) != null){
+                String[] data = lines.split(",");
+                students.add(
+                        new Student(
+                                data[0],
+                                Integer.parseInt(data[1])
+                        )
+                );
+            } reader.close();
+        } catch (IOException e) {
+            System.out.println("No previous student data was found!");
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>();
+
+        loadStudentsFromFile(students);
 
         while (true) {
             System.out.println("\n========== MENU ==========");
@@ -83,6 +105,7 @@ public class Main {
                     int marks = sc.nextInt();
                     if (marks < 0 || marks > 100) {
                         System.out.println("Invalid marks! Marks should be between 0 and 100");
+                        break; //now invalid students wont be added.
                     }
 
                     Student s = new Student(name, marks);
@@ -107,6 +130,7 @@ public class Main {
                     System.out.println("\n =========== REPORT ===========");
                     if (students.isEmpty()) {
                         System.out.println("No students available!");
+                        break;
                     }
                     generateReport(students);
                     break;

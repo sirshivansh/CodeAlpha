@@ -84,7 +84,7 @@ public class Main {
     public static void displayStudentWithmarks(ArrayList<Student> students){
         for(int i=0; i < students.size(); i++){
             Student s = students.get(i);
-            System.out.println("%d. %-20s %d%n", i+1, s.name, s.marks);
+            System.out.printf("%d. %-20s %d%n", i+1, s.name, s.marks);
         }
     }
 
@@ -99,7 +99,8 @@ public class Main {
             System.out.println("1. Add Student");
             System.out.println("2. View Student");
             System.out.println("3. Generate Report");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Exit");
 
             System.out.println("Enter your choice: ");
             int choice = sc.nextInt(); // there is \n waiting in buffer.
@@ -142,6 +143,25 @@ public class Main {
                     generateReport(students);
                     break;
                 case 4:
+                    if (students.isEmpty()){
+                        System.out.println("No students available!");
+                    }
+                    displayStudentWithmarks(students);
+
+                    int studentNumber = sc.nextInt();
+
+                    if(studentNumber < 1 || studentNumber > students.size()){
+                        System.out.println("Invalid Student Number!");
+                        break;
+                    }
+                    int index = studentNumber - 1;
+                    Student deletedStudent =  students.get(index);
+                    students.remove(index);
+                    saveStudentsToFile(students);
+
+                    System.out.println(deletedStudent.name + " deleted successfully!");
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     return;
                 default:
